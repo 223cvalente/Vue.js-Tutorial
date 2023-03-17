@@ -4,28 +4,60 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
+   <style>
+    .box{
+      padding: 100px 0;
+      width: 400px;
+      text-align: center;
+      background: #ddd;
+     margin: 20px;
+     display: inline-block;
+    }
+   </style>
     <title>Learning Vue </title>
 </head>
 <body>
     <h1> hello vue :</h1>
 
         <div id = "app">
+<!-- attribute binding-->
+<!-- <a :href="url"> website</a> -->
+
+
+
+
+
         <!-- <p>{{title}} - {{ Author }} - {{ age }} </p>
      <button v-on:click="age++">Increase Age</button>
      <button v-on:click="age--">Decrease Age</button>
     <div @click="changeTitle('Oathbringer')">Change book title</div>
 </div> -->
      <div v-if="showbooks">
- <p>{{title}} - {{ Author }} - {{ age }} </p>
+<ul>
+    <li v-for = "book in books" :class="{fav: book.isFav}">
+        <img :src ="book.img" :alt="book.title">
+        <h1>{{book.title}} </h1>
+        <p> {{book.author}}</p>
+
+    </li>
+</ul>
      </div>
-    </div>
+    <!-- </div> -->
 <button  @click="toggleShowBooks">
     <span v-if="showBooks"> Hide Books </span>
     <span v-else> Show Books </span>
 </button>
-<div v-show="showBooks"> currently showing books </div>
-</div>
+ 
+<!-- <br> -->
+   <!-- mouse events-->
+ <!-- <div class = "box" @mouseover="handleEvent($event, 5)">mouseover (enter)</div>
+ <div class = "box" @mouseover="handleEvent">mouseleave</div>
+ <div class = "box" @dblclick="handleEvent">double click</div>
+ <div class = "box" @mousemove="handleMousemove">position - {{x}} {{y}}</div>
+</div> -->
+<!-- 
+<div v-show="showBooks"> currently showing books </div> -->
+
     <script src = "app.js"></script>
 </body>
 </html>
